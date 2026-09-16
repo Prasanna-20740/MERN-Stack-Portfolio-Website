@@ -694,11 +694,11 @@ function App() {
                 };
 
                 try {
-                  const response = await fetch("http://localhost:5000/api/contact", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(data),
-                  });
+  const response = await fetch("https://mern-stack-portfolio-website.onrender.com/api/contact", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
                   const result = await response.json();
                   if (result.success) {
                     alert("Message sent successfully!");
