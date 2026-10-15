@@ -1,79 +1,76 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import "./App.css";
 
-import profileImage from "./assets/profile.png.png";
-import dailyNewsImage from "./assets/daily-news.png.jpg";
-import registrationImage from "./assets/registration-app.png.jpg";
-import portfolioImage from "./assets/mern-portfolio.png.jpg";
+const profileImage = "/images/profile.png";
 
 const skills = [
-  { name: "React.js", level: "75%", type: "Frontend", icon: "⚛" },
-  { name: "JavaScript", level: "80%", type: "Logic & Interactions", icon: "JS" },
-  { name: "HTML5", level: "90%", type: "Semantic Structure", icon: "</>" },
-  { name: "CSS3", level: "85%", type: "Responsive UI", icon: "✦" },
-  { name: "Node.js", level: "70%", type: "Backend", icon: "N" },
-  { name: "Express.js", level: "70%", type: "REST APIs", icon: "E" },
-  { name: "MongoDB", level: "70%", type: "Database", icon: "M" },
+  { name: "Manual Testing", level: "90%", type: "STLC & Test Cases", icon: "✓" },
+  { name: "Selenium WebDriver", level: "80%", type: "Automation Testing", icon: "⚡" },
+  { name: "API Testing (Postman)", level: "85%", type: "REST API Validation", icon: "⇄" },
+  { name: "Java & JavaScript", level: "75%", type: "Test Scripting", icon: "JS" },
+  { name: "SQL & DB Testing", level: "80%", type: "Data Verification", icon: "🗄" },
+  { name: "JIRA & Bug Tracking", level: "85%", type: "Defect Lifecycle", icon: "🐞" },
+  { name: "TestNG & Frameworks", level: "75%", type: "Test Execution", icon: "⚙" },
   { name: "Git & GitHub", level: "75%", type: "Version Control", icon: "⌘" },
 ];
 
 const services = [
   {
-    title: "Web Development",
-    text: "Responsive websites with clean layouts, smooth interactions and a strong focus on usability.",
-    tag: "01 / BUILD",
-    image:
-      "https://wallpaperaccess.com/full/4635743.jpg",
+    title: "Manual & Functional Testing",
+    text: "Comprehensive test scenario planning, test case execution, regression testing, and exploratory testing across user flows.",
+    tag: "01 / MANUAL",
+    image: "/images/manual-testing.jpg",
   },
   {
-    title: "React Frontend",
-    text: "Component-based interfaces that are reusable, responsive and easy to maintain.",
-    tag: "02 / UI",
-    image:
-      "https://files.ably.io/ghost/prod/2023/11/best-react-component-libraries.png",
+    title: "Automation Testing",
+    text: "Automated test suites using Selenium WebDriver and frameworks to accelerate regression cycles and eliminate manual overhead.",
+    tag: "02 / AUTOMATION",
+    image: "/images/automation-testing.jpg",
   },
   {
-    title: "Backend & APIs",
-    text: "Node.js and Express.js APIs designed to connect frontend applications with real data.",
+    title: "API & Integration Testing",
+    text: "Validating RESTful endpoints, status codes, response payloads, edge cases, and data integrity using Postman.",
     tag: "03 / API",
-    image:
-      "https://cdn.prod.website-files.com/670cce27577a0eeb27e1c56b/68baa017d66d08ad06092e46_software%20development%20tools.webp",
+    image: "/images/api-testing.jpg",
   },
   {
-    title: "Database Solutions",
-    text: "MongoDB data structures for practical applications, user information and content management.",
-    tag: "04 / DATA",
-    image:
-      "https://wallpaperaccess.com/full/6484192.jpg",
+    title: "Defect Tracking & QA Reporting",
+    text: "Systematic bug reporting in JIRA with reproducible steps, expected vs. actual outcomes, severity tags, and regression verification.",
+    tag: "04 / QA",
+    image: "/images/defect-tracking.jpg",
   },
 ];
 
 const projects = [
   {
     number: "01",
-    title: "Daily News Website",
-    category: "Full-stack Web Application",
-    image: dailyNewsImage,
-    text: "A complete news platform with a public-facing website and an admin workflow for managing news content.",
-    tech: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
+    title: "Daily News Portal - QA Suite",
+    category: "Manual & Automation Testing",
+    images: [
+      { url: "/images/daily-news-admin-clean.png", label: "Admin Workspace" },
+      { url: "/images/daily-news-portal-clean.png", label: "Public Portal" },
+    ],
+    image: "/images/daily-news-admin-clean.png",
+    text: "Comprehensive testing covering user authentication, news publishing workflows, cross-browser compatibility, and defect tracking.",
+    tech: ["Selenium", "Manual Testing", "Test Cases", "Postman", "Bug Reporting"],
     github: "YOUR_DAILY_NEWS_GITHUB_LINK",
   },
   {
     number: "02",
-    title: "Registration System",
-    category: "MERN Application",
-    image: registrationImage,
-    text: "A full-stack registration application that connects a React interface with Node.js, Express.js and MongoDB.",
-    tech: ["React", "Node.js", "Express", "MongoDB"],
+    title: "Registration System - API & UI Testing",
+    category: "Functional & API Testing",
+    image: "/images/registration-app-clean.png",
+    text: "End-to-end testing of user registration flows, input validation rules, boundary values, and REST API response assertions using Postman.",
+    tech: ["Postman", "REST APIs", "Validation Testing", "Jira", "Black-Box QA"],
     github: "https://github.com/Prasanna-20740/car-dealership-web-application",
   },
   {
     number: "03",
-    title: "MERN Portfolio",
-    category: "Personal Portfolio",
-    image: portfolioImage,
-    text: "A responsive portfolio designed to present development skills, projects, education and professional journey.",
-    tech: ["React", "CSS", "JavaScript", "Responsive UI"],
+    title: "Automation Testing Framework",
+    category: "Automation Framework",
+    image: "/images/automation-framework.jpg",
+    text: "Modular test automation suite leveraging Page Object Model (POM), data-driven testing, and automated test execution reporting.",
+    tech: ["Selenium", "TestNG", "Java", "POM Design", "Git"],
     github: "YOUR_PORTFOLIO_GITHUB_LINK",
   },
 ];
@@ -81,21 +78,57 @@ const projects = [
 const certificates = [
   {
     number: "01",
-    title: "MERN Stack Development",
+    title: "Software Testing & QA Fundamentals",
     provider: "Add certificate provider",
-    detail: "Frontend, backend, API and database fundamentals.",
+    detail: "Manual testing methodologies, SDLC, STLC, test case design, and defect lifecycle.",
   },
   {
     number: "02",
-    title: "Web Development",
+    title: "Selenium Automation Testing",
     provider: "Add certificate provider",
-    detail: "Responsive website development and modern UI practices.",
+    detail: "Web automation using Selenium WebDriver, locators, TestNG, and automated assertions.",
   },
   {
     number: "03",
-    title: "JavaScript",
+    title: "API Testing with Postman",
     provider: "Add certificate provider",
-    detail: "Core JavaScript concepts, DOM and interactive web development.",
+    detail: "REST API testing, request collections, status validations, and environment variables.",
+  },
+];
+
+const heroHeadlines = [
+  {
+    testId: "TC-01",
+    tabLabel: "Manual QA & Precision",
+    shortLabel: "Manual QA",
+    command: "assert.quality(system) === 100%",
+    prefix: "Ensuring",
+    highlight: "software quality",
+    suffix: "with precision.",
+    speed: "14ms",
+    statusBadge: "100% PASS",
+  },
+  {
+    testId: "TC-02",
+    tabLabel: "Selenium Automation",
+    shortLabel: "Selenium",
+    command: "driver.validateRegression() === PASS",
+    prefix: "Automating",
+    highlight: "regression test suites",
+    suffix: "with Selenium.",
+    speed: "28ms",
+    statusBadge: "E2E VERIFIED",
+  },
+  {
+    testId: "TC-03",
+    tabLabel: "API & Zero Defects",
+    shortLabel: "API Testing",
+    command: "postman.checkStatus(200) && bugs === 0",
+    prefix: "Delivering",
+    highlight: "zero-defect releases",
+    suffix: "with API & STLC.",
+    speed: "19ms",
+    statusBadge: "200 OK ZERO BUG",
   },
 ];
 
@@ -103,11 +136,69 @@ function App() {
   const [darkMode, setDarkMode] = useState(true);
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [dailyNewsView, setDailyNewsView] = useState(0);
+  const [headlineIndex, setHeadlineIndex] = useState(0);
+  const [animPhase, setAnimPhase] = useState("active"); // "active" | "exiting" | "entering"
+  const [testStatus, setTestStatus] = useState("passed"); // "testing" | "passed"
+  const [cycleKey, setCycleKey] = useState(0);
+
+  const switchHeadline = useCallback(
+    (targetIndex) => {
+      if (targetIndex === headlineIndex) return;
+      setAnimPhase("exiting");
+      setTestStatus("testing");
+
+      setTimeout(() => {
+        setHeadlineIndex(targetIndex);
+        setAnimPhase("entering");
+        setCycleKey((k) => k + 1);
+
+        setTimeout(() => {
+          setAnimPhase("active");
+          setTestStatus("passed");
+        }, 40);
+      }, 320);
+    },
+    [headlineIndex]
+  );
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    const timer = setInterval(() => {
+      setAnimPhase("exiting");
+      setTestStatus("testing");
+
+      setTimeout(() => {
+        setHeadlineIndex((prev) => (prev + 1) % heroHeadlines.length);
+        setAnimPhase("entering");
+
+        setTimeout(() => {
+          setAnimPhase("active");
+          setTestStatus("passed");
+        }, 40);
+      }, 320);
+    }, 4500);
+
+    return () => clearInterval(timer);
+  }, [cycleKey]);
+
+  const [activeSection, setActiveSection] = useState("home");
+
+  useEffect(() => {
+    const sectionIds = ["home", "about", "skills", "services", "projects", "education", "internship", "contact"];
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+      const scrollPos = window.scrollY + 180;
+      for (let i = sectionIds.length - 1; i >= 0; i--) {
+        const el = document.getElementById(sectionIds[i]);
+        if (el && el.offsetTop <= scrollPos) {
+          setActiveSection(sectionIds[i]);
+          break;
+        }
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
@@ -130,10 +221,13 @@ function App() {
 
   const closeMenu = () => setMenuOpen(false);
 
+  const navMenuItems = ["Home", "About", "Skills", "Services", "Projects", "Education", "Experience", "Contact"];
+
   return (
     <div className={darkMode ? "app dark-mode" : "app"}>
       <header className={`navbar ${scrolled ? "scrolled" : ""}`}>
         <div className="navbar-glow" aria-hidden="true" />
+        <div className="navbar-laser-top" aria-hidden="true" />
 
         <a href="#home" className="brand" onClick={closeMenu} aria-label="Prasanna home">
           <span className="brand-mark-wrap">
@@ -141,44 +235,70 @@ function App() {
             <span className="brand-ring" aria-hidden="true" />
           </span>
           <span className="brand-copy">
-            <strong>Prasanna</strong>
-            <small>DEVELOPER</small>
+            <strong className="brand-title">Prasanna P</strong>
+            <span className="brand-role-badge">
+              <span className="brand-live-dot" aria-hidden="true" />
+              <span>QA ENGINEER</span>
+            </span>
           </span>
         </a>
 
-        <button
-          className={`menu-toggle ${menuOpen ? "active" : ""}`}
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle navigation"
-          aria-expanded={menuOpen}
-        >
-          <span />
-          <span />
-          <span />
-        </button>
+        <nav className={`nav-links ${menuOpen ? "open" : ""}`} aria-label="Primary navigation">
+          <div className="nav-capsule">
+            {navMenuItems.map((item, index) => {
+              const targetId = item === "Experience" ? "internship" : item.toLowerCase();
+              const isActive = activeSection === targetId;
+              return (
+                <a
+                  key={item}
+                  href={`#${targetId}`}
+                  onClick={closeMenu}
+                  className={`nav-item ${isActive ? "active" : ""}`}
+                  style={{ "--nav-index": index }}
+                >
+                  <span className="nav-link-text">{item}</span>
+                  {isActive && <span className="nav-active-pill" aria-hidden="true" />}
+                </a>
+              );
+            })}
+          </div>
 
-        <nav className={`nav-links ${menuOpen ? "open" : ""}`}>
-          {["Home", "About", "Skills", "Services", "Projects", "Education", "Experience", "Contact"].map(
-            (item, index) => (
-              <a
-                key={item}
-                href={`#${item === "Experience" ? "internship" : item.toLowerCase()}`}
-                onClick={closeMenu}
-                style={{ "--nav-index": index }}
-              >
-                <span className="nav-link-text">{item}</span>
-                <span className="nav-link-dot" aria-hidden="true" />
-              </a>
-            )
-          )}
+          {/* Quick Action inside Mobile Drawer */}
+          <div className="mobile-drawer-footer">
+            <a href="#contact" className="mobile-drawer-cta" onClick={closeMenu}>
+              <span>⚡ Hire QA Specialist</span>
+              <span>↗</span>
+            </a>
+          </div>
+        </nav>
+
+        <div className="navbar-actions">
+          <a href="#contact" className="nav-cta-btn" onClick={closeMenu}>
+            <span className="nav-cta-pulse" aria-hidden="true" />
+            <span>Hire QA</span>
+            <span className="nav-cta-arrow" aria-hidden="true">↗</span>
+          </a>
+
           <button
             className="theme-btn"
             onClick={() => setDarkMode(!darkMode)}
             aria-label="Toggle theme"
+            title={darkMode ? "Switch to light mode" : "Switch to dark mode"}
           >
             <span className="theme-icon" aria-hidden="true">{darkMode ? "☀" : "☾"}</span>
           </button>
-        </nav>
+
+          <button
+            className={`menu-toggle ${menuOpen ? "active" : ""}`}
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle navigation"
+            aria-expanded={menuOpen}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
       </header>
 
       <main>
@@ -188,24 +308,97 @@ function App() {
 
           <div className="hero-content">
             <div className="hero-text">
-              <div className="availability">
-                <span className="pulse-dot" />
-                Available for opportunities
+              <div className="hero-top-badges">
+                <div className="availability">
+                  <span className="pulse-dot" />
+                  Available for QA Opportunities
+                </div>
+                <div className="qa-live-pill">
+                  <span className="qa-pill-icon">✓</span>
+                  <span>AUTOMATED TEST SUITE: 100% PASS</span>
+                  <span className="qa-ping" />
+                </div>
               </div>
 
-              <p className="eyebrow">HELLO, I'M PRASANNA</p>
-              <h1>
-                I build <span>digital experiences</span> that feel simple.
-              </h1>
+              <div className="qa-headline-header">
+                <p className="eyebrow">HELLO, I'M PRASANNA</p>
+                <div className="qa-test-runner-badge">
+                  <span className={`test-pulse-dot ${testStatus}`} />
+                  <span className="test-id">{heroHeadlines[headlineIndex].testId}</span>
+                  <span className="test-divider">|</span>
+                  <span className="test-cmd">
+                    {testStatus === "testing" ? (
+                      <span className="cmd-running">RUNNING: {heroHeadlines[headlineIndex].command}...</span>
+                    ) : (
+                      <span className="cmd-passed">✓ PASSED [{heroHeadlines[headlineIndex].speed}]</span>
+                    )}
+                  </span>
+                </div>
+              </div>
+
+              {/* Interactive 3-Step QA Story Progress Tabs */}
+              <div className="qa-story-tabs" role="tablist" aria-label="QA Testing Headlines">
+                {heroHeadlines.map((item, idx) => {
+                  const isActive = headlineIndex === idx;
+                  return (
+                    <button
+                      key={item.testId}
+                      type="button"
+                      role="tab"
+                      aria-selected={isActive}
+                      className={`qa-story-tab ${isActive ? "active" : ""}`}
+                      onClick={() => switchHeadline(idx)}
+                      title={`Switch to ${item.tabLabel}`}
+                    >
+                      <div className="qa-story-progress-track">
+                        <div
+                          key={`${idx}-${cycleKey}`}
+                          className={`qa-story-progress-bar ${isActive ? "running" : ""}`}
+                        />
+                      </div>
+                      <div className="qa-story-tab-label">
+                        <span className="qa-story-tab-num">{item.testId}</span>
+                        <span className="qa-story-tab-text full-label">{item.tabLabel}</span>
+                        <span className="qa-story-tab-text short-label">{item.shortLabel}</span>
+                        {isActive && <span className="qa-story-tab-badge">{item.statusBadge}</span>}
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* 3D Kinetic Masked Heading Viewport */}
+              <div className="hero-rotator-viewport">
+                <div
+                  className={`hero-rotator-scan-overlay ${
+                    animPhase === "exiting" ? "scanning" : ""
+                  }`}
+                  aria-hidden="true"
+                />
+                <h1
+                  className={`hero-rotator ${
+                    animPhase === "exiting"
+                      ? "is-exiting"
+                      : animPhase === "entering"
+                      ? "is-entering"
+                      : "is-active"
+                  }`}
+                >
+                  <span className="qa-laser-beam" aria-hidden="true" />
+                  <span className="rotator-prefix">{heroHeadlines[headlineIndex].prefix}</span>{" "}
+                  <span className="hero-highlight-wave">{heroHeadlines[headlineIndex].highlight}</span>{" "}
+                  <span className="rotator-suffix">{heroHeadlines[headlineIndex].suffix}</span>
+                </h1>
+              </div>
               <p className="hero-description">
-                MERN Stack Developer focused on building responsive, practical and
-                user-friendly web applications with modern frontend and backend
-                technologies.
+                Software Testing Engineer focused on Manual Testing, Selenium Automation,
+                API validation, and delivering reliable, bug-free web applications with
+                high quality standards.
               </p>
 
               <div className="hero-buttons">
                 <a href="#projects" className="btn primary-btn">
-                  Explore Projects <span>↗</span>
+                  Explore Test Work <span>↗</span>
                 </a>
                 <a href="#contact" className="btn secondary-btn">
                   Let's Connect
@@ -215,41 +408,84 @@ function App() {
               <div className="hero-stats">
                 <div>
                   <strong>03+</strong>
-                  <span>Projects</span>
+                  <span>Test Projects</span>
                 </div>
                 <div>
                   <strong>08</strong>
-                  <span>Core Skills</span>
+                  <span>Core QA Skills</span>
                 </div>
                 <div>
-                  <strong>∞</strong>
-                  <span>Learning Mode</span>
+                  <strong>100%</strong>
+                  <span>Quality Focus</span>
                 </div>
               </div>
             </div>
 
             <div className="profile-stage">
+              <div className="profile-radar-sweep" />
               <div className="profile-ring ring-one" />
               <div className="profile-ring ring-two" />
               <div className="profile-card">
                 <div className="profile-top">
-                  <span>PROFILE / 2026</span>
-                  <span className="live-dot">● ONLINE</span>
+                  <span>QA WORKSPACE / 2026</span>
+                  <span className="live-dot">● ENVIRONMENT READY</span>
                 </div>
                 <div className="profile-image-wrap">
                   <img src={profileImage} alt="Prasanna Profile" />
+                  <div className="qa-scan-overlay" />
                 </div>
                 <div className="profile-bottom">
                   <div>
                     <strong>Prasanna P</strong>
-                    <span>MERN Stack Developer</span>
+                    <span>Software Testing Engineer</span>
                   </div>
-                  <div className="profile-code">&lt;/&gt;</div>
+                  <div className="profile-code">QA</div>
                 </div>
               </div>
-              <div className="floating-chip chip-one">React.js</div>
-              <div className="floating-chip chip-two">Node.js</div>
-              <div className="floating-chip chip-three">MongoDB</div>
+
+              {/* Testing-themed animated floating chips */}
+              <div className="floating-chip chip-one">
+                <span className="chip-status-pass">✓</span>
+                <span>Selenium · 32 Tests Passed</span>
+              </div>
+              <div className="floating-chip chip-two">
+                <span className="chip-status-api">⚡</span>
+                <span>Postman API · 200 OK</span>
+              </div>
+              <div className="floating-chip chip-three">
+                <span className="chip-status-bug">🐞</span>
+                <span>JIRA · Zero Defects</span>
+              </div>
+              <div className="floating-chip chip-four">
+                <span className="chip-status-shield">🛡</span>
+                <span>STLC Verified Build</span>
+              </div>
+
+              {/* Live Automated Test Execution HUD widget */}
+              <div className="qa-test-hud">
+                <div className="qa-hud-header">
+                  <span className="hud-indicator" />
+                  <span className="hud-title">TEST RUNNER: AUTOMATED</span>
+                  <span className="hud-timer">0.12s</span>
+                </div>
+                <div className="hud-lines">
+                  <div className="hud-line line-1">
+                    <span className="hud-badge">PASS</span>
+                    <span className="hud-code">test_user_auth_flow()</span>
+                  </div>
+                  <div className="hud-line line-2">
+                    <span className="hud-badge">PASS</span>
+                    <span className="hud-code">verify_api_status_200()</span>
+                  </div>
+                  <div className="hud-line line-3">
+                    <span className="hud-badge">PASS</span>
+                    <span className="hud-code">cross_browser_layout()</span>
+                  </div>
+                </div>
+                <div className="hud-progress">
+                  <div className="hud-progress-bar" />
+                </div>
+              </div>
             </div>
           </div>
 
@@ -262,37 +498,38 @@ function App() {
         <section id="about" className="section about-section">
           <div className="section-heading reveal">
             <span className="section-index">01 / ABOUT</span>
-            <h2>Turning curiosity into <span>real projects.</span></h2>
+            <h2>Ensuring quality through <span>rigorous testing.</span></h2>
           </div>
 
           <div className="about-layout">
             <div className="about-intro reveal">
               <p className="large-copy">
-                I am a passionate web developer who enjoys transforming ideas into
-                clean and functional web experiences.
+                I am a detail-oriented Software Testing Engineer dedicated to ensuring
+                software reliability, functionality, and seamless user experiences.
               </p>
               <p>
-                I learn by building. From responsive interfaces to backend APIs and
-                database-driven applications, I focus on understanding how each part
-                of a web application works together.
+                I believe high quality is achieved through thorough testing and proactive defect detection.
+                From drafting comprehensive test cases and executing manual regression runs to writing
+                Selenium automation scripts and validating REST APIs, I focus on identifying issues
+                before they reach production.
               </p>
             </div>
 
             <div className="about-cards">
               <article className="about-mini reveal">
                 <span>01</span>
-                <h3>Build</h3>
-                <p>Learn through practical projects instead of only theory.</p>
+                <h3>Plan</h3>
+                <p>Analyze requirements, identify edge cases, and design detailed test scenarios and cases.</p>
               </article>
               <article className="about-mini reveal">
                 <span>02</span>
-                <h3>Improve</h3>
-                <p>Refine UI, code quality, responsiveness and user experience.</p>
+                <h3>Test</h3>
+                <p>Execute functional, regression, smoke, and API testing to uncover and track defects early.</p>
               </article>
               <article className="about-mini reveal">
                 <span>03</span>
-                <h3>Grow</h3>
-                <p>Keep exploring tools and technologies used in real products.</p>
+                <h3>Assure</h3>
+                <p>Verify bug fixes, ensure cross-browser stability, and uphold high quality standards.</p>
               </article>
             </div>
           </div>
@@ -301,16 +538,16 @@ function App() {
         <section id="skills" className="section skills-section">
           <div className="section-heading center reveal">
             <span className="section-index">02 / SKILLS</span>
-            <h2>A toolkit built for <span>full-stack work.</span></h2>
+            <h2>A toolkit built for <span>quality assurance.</span></h2>
           </div>
 
           <div className="skills-layout">
             <div className="skills-copy reveal">
               <p className="skills-big">08</p>
-              <h3>Technologies I work with</h3>
+              <h3>Testing Tools & Methods</h3>
               <p>
-                My current stack covers the core technologies I use to design,
-                develop and connect modern web applications.
+                My testing toolkit covers manual testing methodologies, automation suites,
+                API testing tools, and defect management workflows.
               </p>
             </div>
 
@@ -337,7 +574,7 @@ function App() {
         <section id="services" className="section services-section">
           <div className="section-heading reveal">
             <span className="section-index">03 / SERVICES</span>
-            <h2>What I can <span>build for you.</span></h2>
+            <h2>What I can <span>test & assure.</span></h2>
           </div>
 
           <div className="services-grid">
@@ -361,11 +598,11 @@ function App() {
           <div className="projects-header reveal">
             <div>
               <span className="section-index">04 / SELECTED WORK</span>
-              <h2>Projects that show <span>how I think.</span></h2>
+              <h2>Projects & test suites showing <span>QA precision.</span></h2>
             </div>
             <p>
-              A selection of practical applications built while learning and
-              improving my development workflow.
+              A selection of manual, automation, and API testing projects developed to validate
+              application stability and performance.
             </p>
           </div>
 
@@ -373,7 +610,33 @@ function App() {
             {projects.map((project) => (
               <article className="project-card reveal" key={project.number}>
                 <div className="project-visual">
-                  <img src={project.image} alt={project.title} loading="lazy" />
+                  <img
+                    src={
+                      project.images
+                        ? project.images[dailyNewsView].url
+                        : project.image
+                    }
+                    alt={project.title}
+                    loading="lazy"
+                  />
+                  {project.images && project.images.length > 1 && (
+                    <div className="project-view-tabs">
+                      {project.images.map((imgObj, idx) => (
+                        <button
+                          key={imgObj.label}
+                          type="button"
+                          className={`project-view-tab ${dailyNewsView === idx ? "active" : ""}`}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            setDailyNewsView(idx);
+                          }}
+                        >
+                          {imgObj.label}
+                        </button>
+                      ))}
+                    </div>
+                  )}
                   <div className="project-overlay">
                     <span>{project.category}</span>
                     <strong>{project.number}</strong>
@@ -464,7 +727,7 @@ function App() {
         <section id="internship" className="section experience-section">
           <div className="section-heading center reveal">
             <span className="section-index">07 / EXPERIENCE</span>
-            <h2>From learning to <span>hands-on practice.</span></h2>
+            <h2>From testing concepts to <span>hands-on QA.</span></h2>
           </div>
 {/* Experience / Internship 01 */}
 <div className="experience-panel reveal">
@@ -482,40 +745,40 @@ function App() {
         
         <h3>Z6 IT Technologies Pvt. Ltd. — Chennai</h3>
         <br></br>
-        <span className="eyebrow">FULL-STACK WEB DEVELOPMENT</span>
-        <h3>Daily News Web Application</h3>
+        <span className="eyebrow">SOFTWARE TESTING & QA INTERNSHIP</span>
+        <h3>Daily News Web Application – QA & Testing</h3>
       </div>
       <span className="experience-status">Hands-on</span>
     </div>
 
     <p className="experience-description">
-     Completed a 3-month offline internship, where I developed a dynamic Daily News web application with a user-friendly interface for browsing and managing news content. Implemented category-based news publishing, user authentication, comments, video content, and an admin panel using frontend and backend technologies.
+     Completed a 3-month offline internship focused on manual and functional testing of the Daily News web application. Designed and executed comprehensive test cases, conducted regression testing, performed cross-browser testing, and reported defects to ensure smooth performance across news browsing and admin workflows.
     </p>
 
     <div className="experience-points">
       <div>
         <b>01</b>
-        <span>Built responsive pages for displaying daily news, categories and detailed articles.</span>
+        <span>Created detailed test scenarios and test cases covering user authentication, news publishing, and comments.</span>
       </div>
 
       <div>
         <b>02</b>
-        <span>Developed an admin panel to manage news, categories, users and content.</span>
+        <span>Conducted functional, smoke, and regression testing across various browsers and screen resolutions.</span>
       </div>
 
       <div>
         <b>03</b>
-        <span>Implemented user registration, login and commenting functionality with PHP and MySQL.</span>
+        <span>Identified, logged, and tracked functional defects with detailed reproduction steps and severity ratings.</span>
       </div>
 
       <div>
         <b>04</b>
-        <span>Integrated database-driven content and improved application usability through JavaScript and responsive UI design.</span>
+        <span>Verified database records and backend updates using MySQL queries to confirm data integrity and accuracy.</span>
       </div>
     </div>
 
     <div className="experience-tech">
-      {["HTML", "CSS", "JavaScript", "PHP", "MySQL", "XAMPP"].map(
+      {["Manual Testing", "Test Cases", "STLC", "Regression Testing", "MySQL", "Bug Tracking"].map(
         (item) => (
           <span key={item}>{item}</span>
         )
@@ -539,40 +802,40 @@ function App() {
   <div className="experience-main">
     <div className="experience-title-row">
       <div>
-        <span className="eyebrow">MERN STACK DEVELOPMENT</span>
-        <h3>Personal Portfolio Website</h3>
+        <span className="eyebrow">QA AUTOMATION & WEB TESTING</span>
+        <h3>Web Application Test Automation Suite</h3>
       </div>
       <span className="experience-status">Project</span>
     </div>
 
     <p className="experience-description">
-     Developed a modern and responsive personal portfolio website using the MERN Stack to showcase my skills, projects, internship experience and professional profile. Implemented dynamic content management, reusable React components and a Node.js backend with MongoDB integration.
+     Designed and implemented automated test suites for web applications using Selenium WebDriver. Automated repetitive regression test flows, validated responsive UI layouts, and ensured stable user journeys across key features.
     </p>
 
     <div className="experience-points">
       <div>
         <b>01</b>
-        <span>Designed a responsive and modern portfolio interface using React.js.</span>
+        <span>Developed automated test scripts using Selenium WebDriver to validate critical user navigation and input forms.</span>
       </div>
 
       <div>
         <b>02</b>
-        <span>Created reusable components for skills, projects, experience and contact sections.</span>
+        <span>Conducted cross-browser and responsive testing to guarantee UI consistency across various viewports.</span>
       </div>
 
       <div>
         <b>03</b>
-        <span>Developed backend APIs using Node.js and Express.js.</span>
+        <span>Designed positive and negative test cases for form validation, edge cases, and boundary values.</span>
       </div>
 
       <div>
         <b>04</b>
-        <span>Integrated MongoDB for storing and managing portfolio data.</span>
+        <span>Executed end-to-end regression and smoke test cycles prior to release deployment.</span>
       </div>
     </div>
 
     <div className="experience-tech">
-      {["HTML", "CSS", "JavaScript", "React.js", "Node.js", "Express.js", "MongoDB"].map(
+      {["Selenium WebDriver", "Java", "TestNG", "Manual Testing", "Cross-Browser Testing"].map(
         (item) => (
           <span key={item}>{item}</span>
         )
@@ -584,7 +847,7 @@ function App() {
 <br></br>
 
 
-{/* Project / Practical Experience 02 */}
+{/* Project / Practical Experience 03 */}
 <div className="experience-panel reveal">
   <div className="experience-side">
     <span className="experience-label">
@@ -597,40 +860,40 @@ function App() {
   <div className="experience-main">
     <div className="experience-title-row">
       <div>
-        <span className="eyebrow">FULL-STACK WEB DEVELOPMENT</span>
-        <h3>Real Estate CRM – PropFlow</h3>
+        <span className="eyebrow">FUNCTIONAL & DATABASE TESTING</span>
+        <h3>Real Estate CRM (PropFlow) – QA & Testing</h3>
       </div>
       <span className="experience-status">Project</span>
     </div>
 
     <p className="experience-description">
-      Developed a web-based Real Estate CRM to manage properties, buildings, units, leads and sales activities through a centralized platform. Implemented property management, lead tracking, sales pipeline and database-driven features with a responsive user interface.
+      Performed end-to-end testing of the Real Estate CRM system, ensuring reliability of modules for property listings, lead management, and user permissions. Validated database integrity and verified business workflows.
     </p>
 
     <div className="experience-points">
       <div>
         <b>01</b>
-        <span>Built modules to manage properties, buildings and individual units.</span>
+        <span>Tested core CRM modules including property listings, unit management, and lead pipeline tracking.</span>
       </div>
 
       <div>
         <b>02</b>
-        <span>Implemented lead management and sales pipeline tracking.</span>
+        <span>Executed database testing using SQL queries to verify data consistency, transactions, and relations.</span>
       </div>
 
       <div>
         <b>03</b>
-        <span>Developed database-driven features using PHP and MySQL.</span>
+        <span>Validated role-based access control and user permission boundaries across admin and agent roles.</span>
       </div>
 
       <div>
         <b>04</b>
-        <span>Designed a responsive and user-friendly CRM interface for efficient data management.</span>
+        <span>Collaborated on defect resolution, conducted retesting, and verified fixes for resolved issues.</span>
       </div>
     </div>
 
     <div className="experience-tech">
-      {["HTML", "CSS", "JavaScript", "PHP", "MySQL", "XAMPP"].map(
+      {["Functional Testing", "SQL / Database Testing", "Jira", "STLC", "Test Execution"].map(
         (item) => (
           <span key={item}>{item}</span>
         )
@@ -645,8 +908,8 @@ function App() {
           <div className="resume-glow" />
           <div className="resume-content reveal">
             <span className="section-index">LET'S WORK TOGETHER</span>
-            <h2>Have a <span>project in mind?</span></h2>
-            <p>Let's turn your idea into a clean, responsive and useful web experience.</p>
+            <h2>Looking for a <span>dedicated QA tester?</span></h2>
+            <p>Let's collaborate to ensure your software applications are reliable, bug-free, and high quality.</p>
           </div>
           <a href="/Prasanna_Resume.pdf" download="Prasanna_Resume.pdf" className="resume-btn reveal">
             Download Resume <span>↓</span>
@@ -662,11 +925,11 @@ function App() {
           <div className="contact-content">
             <div className="contact-info reveal">
               <p className="contact-lead">
-                Looking for a developer for a web project or an entry-level
-                opportunity? Feel free to reach out.
+                Looking for a Software Testing Engineer / QA Specialist for your
+                team or an entry-level opportunity? Feel free to reach out.
               </p>
               <div className="contact-details">
-                <a href="mailto:your-email@gmail.com">
+                <a href="mailto:prasanna812005@gmail.com">
                   <span>Email</span>
                   prasanna812005@gmail.com
                 </a>
@@ -717,7 +980,7 @@ function App() {
                 <input name="email" type="email" placeholder="Your Email" required />
               </div>
               <input name="subject" type="text" placeholder="Subject" required />
-              <textarea name="message" placeholder="Tell me about your project..." rows="6" required />
+              <textarea name="message" placeholder="Tell me about your testing requirements or role..." rows="6" required />
               <button type="submit">
                 Send Message <span>↗</span>
               </button>
@@ -726,23 +989,123 @@ function App() {
         </section>
       </main>
 
-      <footer>
-        <div className="footer-top">
-          <a href="#home" className="footer-brand">
-            <span className="brand-mark">P</span>
-            Prasanna
-          </a>
-          <p>MERN Stack Developer · Chennai, India</p>
-          <div className="footer-links">
-            <a href="#home">Home</a>
-            <a href="#projects">Projects</a>
-            <a href="#internship">Experience</a>
-            <a href="#contact">Contact</a>
+      <footer className="site-footer">
+        <div className="footer-container">
+          <div className="footer-main-grid">
+            {/* Column 1: Brand & Profile */}
+            <div className="footer-col footer-col-brand">
+              <a href="#home" className="footer-brand">
+                <span className="brand-mark">P</span>
+                Prasanna
+              </a>
+              <p className="footer-tagline">
+                Software Testing Engineer dedicated to Manual QA, Selenium Automation, API Verification, and Defect Lifecycle Management.
+              </p>
+              <div className="footer-status-pill">
+                <span className="status-dot" />
+                <span>Open for QA & Testing Opportunities · Chennai, India</span>
+              </div>
+            </div>
+
+            {/* Column 2: Navigation */}
+            <div className="footer-col footer-col-nav">
+              <h4 className="footer-col-title">Navigation</h4>
+              <ul className="footer-nav-list">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#skills">Skills & Tools</a></li>
+                <li><a href="#services">QA Services</a></li>
+                <li><a href="#projects">Testing Projects</a></li>
+                <li><a href="#internship">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </div>
+
+            {/* Column 3: Profiles & Connect */}
+            <div className="footer-col footer-col-social">
+              <h4 className="footer-col-title">Connect & Profiles</h4>
+              <div className="footer-social-grid">
+                <a
+                  href="https://github.com/Prasanna-20740"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
+                  className="footer-social-card"
+                >
+                  <span className="social-icon-box">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+                      <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                    </svg>
+                  </span>
+                  <div className="social-card-info">
+                    <span className="social-card-label">GitHub</span>
+                    <span className="social-card-detail">@Prasanna-20740</span>
+                  </div>
+                  <span className="social-card-arrow">↗</span>
+                </a>
+
+                <a
+                  href="https://www.linkedin.com/in/prasanna-p-236156281/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  className="footer-social-card"
+                >
+                  <span className="social-icon-box">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.64 1.64 0 1 0 0-3.28 1.64 1.64 0 0 0 0 3.28m1.4 9.74v-8.37H5.06v8.37h2.8z" />
+                    </svg>
+                  </span>
+                  <div className="social-card-info">
+                    <span className="social-card-label">LinkedIn</span>
+                    <span className="social-card-detail">Prasanna P</span>
+                  </div>
+                  <span className="social-card-arrow">↗</span>
+                </a>
+
+                <a
+                  href="https://www.instagram.com/_.prasana._pv20/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="footer-social-card"
+                >
+                  <span className="social-icon-box">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
+                    </svg>
+                  </span>
+                  <div className="social-card-info">
+                    <span className="social-card-label">Instagram</span>
+                    <span className="social-card-detail">@_.prasana._pv20</span>
+                  </div>
+                  <span className="social-card-arrow">↗</span>
+                </a>
+
+                <a
+                  href="mailto:prasanna812005@gmail.com"
+                  aria-label="Email"
+                  className="footer-social-card"
+                >
+                  <span className="social-icon-box">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect width="20" height="16" x="2" y="4" rx="2" />
+                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                    </svg>
+                  </span>
+                  <div className="social-card-info">
+                    <span className="social-card-label">Email</span>
+                    <span className="social-card-detail">prasanna812005@gmail.com</span>
+                  </div>
+                  <span className="social-card-arrow">↗</span>
+                </a>
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="copyright">
-          <span>© 2026 Prasanna</span>
-          <span>Designed & built with React</span>
+
+          <div className="footer-bottom-bar">
+            <span>© 2026 Prasanna · Software Testing & QA Engineer</span>
+            <span className="footer-bottom-tagline">Quality Assurance & Automation Testing Portfolio</span>
+          </div>
         </div>
       </footer>
     </div>
