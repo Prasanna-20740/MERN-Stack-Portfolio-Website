@@ -1,0 +1,186 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R /F2 6 0 R /F3 7 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 6692 >>
+stream
+BT
+/F1 20 Tf
+1 0 0 1 50 740 Tm
+(PRASANNA P) Tj
+/F2 11 Tf
+0 0.588 0.412 rg
+1 0 0 1 50 722 Tm
+(MERN FULL STACK DEVELOPER) Tj
+0.2 0.2 0.2 rg
+/F1 8.5 Tf
+1 0 0 1 50 706 Tm
+(Phone: +91 6379567596  |  Email: Prasanna812005@gmail.com  |  Chennai, Tamil Nadu, India) Tj
+1 0 0 1 50 694 Tm
+(GitHub: github.com/Prasanna-20740   LinkedIn: https://www.linkedin.com/in/prasanna-p20/) Tj
+ET
+
+% Line divider under header
+0 0.588 0.412 RG
+1.5 w
+50 682 m 562 682 l S
+
+BT
+% Professional Summary
+/F1 10.5 Tf
+0.06 0.09 0.16 rg
+1 0 0 1 50 666 Tm
+(PROFESSIONAL SUMMARY) Tj
+ET
+0.8 0.83 0.88 RG 0.75 w 50 661 m 562 661 l S
+BT
+/F3 9 Tf
+0.2 0.25 0.33 rg
+1 0 0 1 50 648 Tm
+(Motivated MERN Stack Developer seeking an entry-level software development opportunity to apply skills in) Tj
+1 0 0 1 50 636 Tm
+(React.js, Node.js, Express.js, MongoDB, JavaScript, HTML and CSS. Experienced through internships and) Tj
+1 0 0 1 50 624 Tm
+(projects in building responsive web interfaces, reusable React components, RESTful APIs, CRUD operations,) Tj
+1 0 0 1 50 612 Tm
+(and database-driven applications. Eager to contribute to a development team and deliver reliable solutions.) Tj
+
+% Technical Skills
+/F1 10.5 Tf
+0.06 0.09 0.16 rg
+1 0 0 1 50 592 Tm
+(TECHNICAL SKILLS) Tj
+ET
+0.8 0.83 0.88 RG 0.75 w 50 587 m 562 587 l S
+BT
+/F1 9 Tf 0.06 0.09 0.16 rg 1 0 0 1 50 574 Tm (Frontend:) Tj
+/F3 9 Tf 0.2 0.25 0.33 rg 1 0 0 1 125 574 Tm (React.js, JavaScript (ES6+), HTML5, CSS3, Responsive Web Design) Tj
+/F1 9 Tf 0.06 0.09 0.16 rg 1 0 0 1 50 561 Tm (Backend:) Tj
+/F3 9 Tf 0.2 0.25 0.33 rg 1 0 0 1 125 561 Tm (Node.js, Express.js, PHP, RESTful APIs) Tj
+/F1 9 Tf 0.06 0.09 0.16 rg 1 0 0 1 50 548 Tm (Database:) Tj
+/F3 9 Tf 0.2 0.25 0.33 rg 1 0 0 1 125 548 Tm (MongoDB, MySQL) Tj
+/F1 9 Tf 0.06 0.09 0.16 rg 1 0 0 1 50 535 Tm (Tools:) Tj
+/F3 9 Tf 0.2 0.25 0.33 rg 1 0 0 1 125 535 Tm (Git, GitHub, VS Code, phpMyAdmin, XAMPP) Tj
+/F1 9 Tf 0.06 0.09 0.16 rg 1 0 0 1 50 522 Tm (Core Concepts:) Tj
+/F3 9 Tf 0.2 0.25 0.33 rg 1 0 0 1 125 522 Tm (CRUD Operations, API Integration, Debugging) Tj
+
+% Internship Experience
+/F1 10.5 Tf
+0.06 0.09 0.16 rg
+1 0 0 1 50 502 Tm
+(INTERNSHIP EXPERIENCE) Tj
+ET
+0.8 0.83 0.88 RG 0.75 w 50 497 m 562 497 l S
+BT
+/F1 9.5 Tf 0.06 0.09 0.16 rg 1 0 0 1 50 484 Tm (Website Development Intern) Tj
+/F2 9.5 Tf 0 0.588 0.412 rg 1 0 0 1 195 484 Tm (|  Z6 IT Technologies Private Limited) Tj
+/F1 8.8 Tf 0.4 0.45 0.5 rg 1 0 0 1 458 484 Tm (Jul 2026 - Sep 2026) Tj
+/F3 8.8 Tf 0.2 0.25 0.33 rg
+1 0 0 1 60 471 Tm (• Contributed to real-time website development projects as part of the core website team.) Tj
+1 0 0 1 60 459 Tm (• Designed responsive landing pages using HTML, CSS, JavaScript, and frontend technologies.) Tj
+1 0 0 1 60 447 Tm (• Developed an Event Management Page with responsive UI and structured content sections.) Tj
+1 0 0 1 60 435 Tm (• Converted UI designs into responsive layouts and reusable frontend components.) Tj
+1 0 0 1 60 423 Tm (• Supported website content updates, layout optimization, and cross-browser compatibility.) Tj
+
+/F1 9.5 Tf 0.06 0.09 0.16 rg 1 0 0 1 50 405 Tm (MERN Full Stack Development Intern) Tj
+/F2 9.5 Tf 0 0.588 0.412 rg 1 0 0 1 230 405 Tm (|  NoviTech Info) Tj
+/F1 8.8 Tf 0.4 0.45 0.5 rg 1 0 0 1 458 405 Tm (Jul 2025 - Aug 2025) Tj
+/F3 8.8 Tf 0.2 0.25 0.33 rg
+1 0 0 1 60 392 Tm (• Built full-stack applications using MongoDB, Express.js, React.js, and Node.js.) Tj
+1 0 0 1 60 380 Tm (• Developed and integrated RESTful APIs with React frontend applications.) Tj
+1 0 0 1 60 368 Tm (• Implemented JWT-based authentication and authorization.) Tj
+1 0 0 1 60 356 Tm (• Used MongoDB for application data storage and backend integration.) Tj
+
+% Projects
+/F1 10.5 Tf
+0.06 0.09 0.16 rg
+1 0 0 1 50 336 Tm
+(PROJECTS) Tj
+ET
+0.8 0.83 0.88 RG 0.75 w 50 331 m 562 331 l S
+BT
+/F1 9.5 Tf 0.06 0.09 0.16 rg 1 0 0 1 50 318 Tm (Student Registration System) Tj
+/F3 8.8 Tf 0.4 0.45 0.5 rg 1 0 0 1 200 318 Tm (| Technologies: React.js, Node.js, Express.js, MySQL) Tj
+/F3 8.8 Tf 0.2 0.25 0.33 rg
+1 0 0 1 60 306 Tm (• Created a student registration form with a React frontend and Express.js backend.) Tj
+1 0 0 1 60 295 Tm (• Created reusable React components and connected frontend views to backend endpoints.) Tj
+
+/F1 9.5 Tf 0.06 0.09 0.16 rg 1 0 0 1 50 281 Tm (Personal Portfolio Website) Tj
+/F3 8.8 Tf 0.4 0.45 0.5 rg 1 0 0 1 190 281 Tm (| Technologies: MERN Stack, React.js, Node.js, Express, MongoDB) Tj
+/F3 8.8 Tf 0.2 0.25 0.33 rg
+1 0 0 1 60 269 Tm (• Developed a responsive portfolio website using the MERN stack with modular component architecture.) Tj
+1 0 0 1 60 258 Tm (• Built reusable React components, RESTful APIs, and integrated MongoDB for contact form submissions.) Tj
+
+/F1 9.5 Tf 0.06 0.09 0.16 rg 1 0 0 1 50 244 Tm (PropFlow CRM Portal) Tj
+/F3 8.8 Tf 0.4 0.45 0.5 rg 1 0 0 1 168 244 Tm (| Technologies: HTML, CSS, JavaScript, PHP, MySQL) Tj
+/F3 8.8 Tf 0.2 0.25 0.33 rg
+1 0 0 1 60 232 Tm (• Developed a CRM portal for managing property-related information, client leads, and real estate records.) Tj
+1 0 0 1 60 221 Tm (• Used PHP and MySQL for database-driven functionality and optimized record retrieval.) Tj
+
+/F1 9.5 Tf 0.06 0.09 0.16 rg 1 0 0 1 50 207 Tm (Daily News Update & Management System) Tj
+/F3 8.8 Tf 0.4 0.45 0.5 rg 1 0 0 1 262 207 Tm (| Technologies: HTML5, CSS3, JS, PHP, MySQL) Tj
+/F3 8.8 Tf 0.2 0.25 0.33 rg
+1 0 0 1 60 195 Tm (• Developed dynamic news website with responsive public interface and authenticated admin CRUD dashboard.) Tj
+1 0 0 1 60 184 Tm (• Implemented admin authentication, role-based access control, multimedia publishing, and user comments.) Tj
+
+% Education
+/F1 10.5 Tf
+0.06 0.09 0.16 rg
+1 0 0 1 50 164 Tm
+(EDUCATION) Tj
+ET
+0.8 0.83 0.88 RG 0.75 w 50 159 m 562 159 l S
+BT
+/F1 9.5 Tf 0.06 0.09 0.16 rg 1 0 0 1 50 146 Tm (B.Tech - Artificial Intelligence and Data Science) Tj
+/F1 8.8 Tf 0.4 0.45 0.5 rg 1 0 0 1 458 146 Tm (Graduated: 2026) Tj
+/F2 9.0 Tf 0 0.588 0.412 rg 1 0 0 1 50 134 Tm (Dhanalakshmi Srinivasan Engineering College \(Autonomous\), Perambalur) Tj
+/F1 8.8 Tf 0.06 0.09 0.16 rg 1 0 0 1 50 122 Tm (CGPA: 8.4) Tj
+/F3 8.8 Tf 0.3 0.35 0.4 rg 1 0 0 1 105 122 Tm (|   SSLC: 98%   |   HSC: 72%) Tj
+
+% Certifications & Achievements
+/F1 10.5 Tf
+0.06 0.09 0.16 rg
+1 0 0 1 50 102 Tm
+(CERTIFICATIONS & ACHIEVEMENTS) Tj
+ET
+0.8 0.83 0.88 RG 0.75 w 50 97 m 562 97 l S
+BT
+/F3 8.6 Tf 0.2 0.25 0.33 rg
+1 0 0 1 50 84 Tm (• TCS iON Career Edge - Young Professional) Tj
+1 0 0 1 50 72 Tm (• Ultimate Beginner's JavaScript Course - Learnz Development Hub) Tj
+1 0 0 1 50 60 Tm (• Microsoft Advanced Excel  |  Introduction to Software Testing) Tj
+1 0 0 1 50 48 Tm (• Completed the Government Technical Examination \(GTE\) - Junior Grade Typewriting in English.) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+7 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000261 00000 n 
+0000007005 00000 n 
+0000007080 00000 n 
+0000007155 00000 n 
+trailer
+<< /Size 8 /Root 1 0 R >>
+startxref
+7225
+%%EOF
