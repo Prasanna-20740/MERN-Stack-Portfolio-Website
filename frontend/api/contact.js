@@ -1,8 +1,8 @@
-const nodemailer = require("nodemailer");
+import nodemailer from "nodemailer";
 
 export default async function handler(req, res) {
-  // Set CORS headers
-  res.setHeader("Access-Control-Allow-Credentials", true);
+  // CORS
+  res.setHeader("Access-Control-Allow-Credentials", "true");
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "GET,OPTIONS,PATCH,DELETE,POST,PUT");
   res.setHeader(
@@ -20,7 +20,8 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { name, email, subject, message } = req.body || {};
+    const body = typeof req.body === "string" ? JSON.parse(req.body) : req.body || {};
+    const { name, email, subject, message } = body;
 
     if (!name || typeof name !== "string" || !name.trim()) {
       return res.status(400).json({ success: false, message: "Your name is required." });
@@ -79,7 +80,7 @@ export default async function handler(req, res) {
       replyTo: `"${cleanName}" <${cleanEmail}>`,
       to: receiver,
       subject: `[Portfolio Inquiry] ${cleanSubject} - from ${cleanName}`,
-      text: `You received a message from your portfolio:
+      text: `You received a new message from your portfolio:
 
 Name: ${cleanName}
 Email: ${cleanEmail}
@@ -119,7 +120,7 @@ ${cleanMessage}
       message: "Your message has been sent successfully. Thank you for reaching out!",
     });
   } catch (error) {
-    console.error("Vercel Serverless Function Contact Error:", error);
+    console.error("Contact Error:", error);
     return res.status(500).json({
       success: false,
       message: error.message || "Failed to deliver message via email.",
