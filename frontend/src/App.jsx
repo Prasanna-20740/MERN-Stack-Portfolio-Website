@@ -177,15 +177,16 @@ export default function App() {
 
     setFormStatus({ submitting: true, submitted: false, error: null });
 
-    // Determine API endpoint dynamically:
-    // 1. Environment variable if provided (e.g. production VITE_API_URL)
-    // 2. Relative '/api/contact' which works seamlessly on both desktop and mobile via Vite proxy or reverse proxy
-    // 3. Fallback to current host:5000 if not on localhost
+    // Production Backend API (Render) with localhost fallback for offline dev
+    const isLocalhost =
+      window.location.hostname === "localhost" ||
+      window.location.hostname === "127.0.0.1";
+
     const apiUrl = import.meta.env.VITE_API_URL 
       ? `${import.meta.env.VITE_API_URL}/api/contact`
-      : (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")
+      : isLocalhost
         ? "/api/contact"
-        : `http://${window.location.hostname}:5000/api/contact`;
+        : "https://mern-stack-portfolio-website.onrender.com/api/contact";
 
     try {
       const response = await fetch(apiUrl, {
