@@ -177,16 +177,13 @@ export default function App() {
 
     setFormStatus({ submitting: true, submitted: false, error: null });
 
-    // Production Backend API (Render) with localhost fallback for offline dev
-    const isLocalhost =
-      window.location.hostname === "localhost" ||
-      window.location.hostname === "127.0.0.1";
-
+    // Contact API endpoint:
+    // 1. Explicit environment variable if provided
+    // 2. Relative '/api/contact' which works natively on Vercel Serverless Function and Vite local proxy
+    // 3. Fallback to live Render backend if hosted elsewhere
     const apiUrl = import.meta.env.VITE_API_URL 
       ? `${import.meta.env.VITE_API_URL}/api/contact`
-      : isLocalhost
-        ? "/api/contact"
-        : "https://mern-stack-portfolio-website.onrender.com/api/contact";
+      : "/api/contact";
 
     try {
       const response = await fetch(apiUrl, {
